@@ -31,6 +31,22 @@ public class AprendiendoJava {
         System.out.println("Valor minimo long: " + Long.MIN_VALUE);
         System.out.println("Valor maximo long: " + Long.MAX_VALUE);
         
+        
+        //tipos primitivos de tipo flotante: float y double
+        
+        float numeroFloat = 10.0F; //tienes que ponerle la F para que sepa que es flotante
+        System.out.println(numeroFloat);
+        System.out.println("Valor minimo float: " + Float.MIN_VALUE);
+        System.out.println("Valor maximo float: " + Float .MAX_VALUE);
+        
+        
+        
+        double numeroDouble = 10;
+        System.out.println("numeroDouble = " + numeroDouble);
+        System.out.println("Valor minimo double: " + Double.MIN_VALUE);
+        System.out.println("Valor maximo double: " + Double .MAX_VALUE);
+        
+     
     }
     
 }
