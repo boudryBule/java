@@ -30,8 +30,22 @@ public class ConversionTiposPrimitivos {
         
         var consola = new Scanner(System.in);
         System.out.println("Introduce un valor: ");
-        edad = Integer.parseInt(consola.nextLine());
-        System.out.println("edad = " + edad);
-     }
+//        edad = Integer.parseInt(consola.nextLine());
+//        System.out.println("edad = " + edad);
+        
+        //tipo int a tipo string
+        var edadTexto = String.valueOf(10);
+        System.out.println("edadTexto = " + edadTexto);
+        
+        //de string a char
+        var caracter = "hola".charAt(0); //con el chartAt te devuelve el caracter de la posición que le pases
+        System.out.println("caracter = " + caracter);
+        
+        System.out.println("Proporciona un caracter: ");
+        caracter = consola.nextLine().charAt(0);
+        System.out.println("caracter = " + caracter);
+        
+    
+    }
     
 }
