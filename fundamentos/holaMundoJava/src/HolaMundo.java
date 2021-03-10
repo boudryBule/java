@@ -29,5 +29,12 @@ public class HolaMundo {
         //si mandas soutv tab te pone eso
         //System.out.println("miVariableCadena2 = " + miVariableCadena2);
         
+        
+        //valores permitidos en el nombre de las variables
+        var miVariable = 1;
+        var _miVariable = 2;
+        var $miVariable = 3;
+
+
     }
 }
