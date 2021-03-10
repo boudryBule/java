@@ -22,7 +22,7 @@ public class ClaseEscaner {
         Scanner consola = new Scanner(System.in); //para leer informacion escrita por la consola  
         var usuario = consola.nextLine(); //nextline lee una linea completa de la consola
         System.out.println("usuario = " + usuario);
-        System.out.println("Introduce el titulo: ");
+        System.out.println("Introduce el titulo:");
         var titulo = consola.nextLine();
         System.out.println("Resultado: " + titulo + " " + usuario);
        
