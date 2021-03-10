@@ -19,5 +19,15 @@ public class HolaMundo {
         miVariableCadena = "adios";
         //si haces control click a una variable te lleva a donde está definida
         System.out.println(miVariableCadena);
+        
+        //var -> inferencia de tipos en java
+         
+        var miVariableEntera2 = 10;
+        System.out.println(miVariableEntera2);
+        var miVariableCadena2 = "saludos";
+        System.out.println(miVariableCadena2);
+        //si mandas soutv tab te pone eso
+        //System.out.println("miVariableCadena2 = " + miVariableCadena2);
+        
     }
 }
