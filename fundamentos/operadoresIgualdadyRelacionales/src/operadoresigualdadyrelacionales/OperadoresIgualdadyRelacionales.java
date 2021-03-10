@@ -39,18 +39,39 @@ public class OperadoresIgualdadyRelacionales {
         //ejercicio numero mayor
         
        
-        System.out.println("Introduce un numero");
-        var consola = new Scanner(System.in);
-        int n1 = Integer.parseInt(consola.nextLine());
-        System.out.println("Introduce otro numero");
-        int n2 = Integer.parseInt(consola.nextLine());
+//        System.out.println("Introduce un numero");
+//        var consola = new Scanner(System.in);
+//        int n1 = Integer.parseInt(consola.nextLine());
+//        System.out.println("Introduce otro numero");
+//        int n2 = Integer.parseInt(consola.nextLine());
+//        
+//        if( n1>n2){
+//            System.out.println("el numero mas grande es: = " + n1);
+//        } else {
+//            System.out.println("el numero mas grande es: = " + n2);
+//
+//        }
+//        
+        //operadores relacionales
+         var g = a > b; // tambien está el operador >=
+         System.out.println("g = " + g);
+         
+        if ( a % 2 == 0) //si se cumple es un numero par
+            System.out.println("Es numero par");
+        else
+            System.out.println("Numero impar");
         
-        if( n1>n2){
-            System.out.println("el numero mas grande es: = " + n1);
+        
+        var edad = 30;
+        var adulto = 18;
+        if(edad >= adulto){
+            System.out.println("Es un adulto");
         } else {
-            System.out.println("el numero mas grande es: = " + n2);
-
+            System.out.println("Es menor de edad");
         }
+        
+        
+        
         
     }
     
