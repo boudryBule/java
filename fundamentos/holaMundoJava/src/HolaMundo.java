@@ -39,9 +39,9 @@ public class HolaMundo {
 
         //concatenación de cadenas
         var usuario = "Juan";
-        var titulo = "Ingeniero";
+        var titulo2 = "Ingeniero";
 
-        var union = titulo + " " + usuario;
+        var union = titulo2 + " " + usuario;
         System.out.println("union = " + union);
         
         var i = 3;
@@ -53,5 +53,12 @@ public class HolaMundo {
         //esto podemos modificarlo usando parentesis
         System.out.println(usuario + (i + j)); //hace primero el parentesis y luego concatena
 
+        
+        var titulo = "Elantris";
+        var autor = "Brandon Sanderson";
+        
+        System.out.println("Proporciona el titulo: ");
+        System.out.println("Proporciona el autor: ");
+        System.out.println(titulo + " fue escrito por " + autor );
     }
 }
