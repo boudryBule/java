@@ -41,10 +41,11 @@ public class ConversionTiposPrimitivos {
         var caracter = "hola".charAt(0); //con el chartAt te devuelve el caracter de la posición que le pases
         System.out.println("caracter = " + caracter);
         
-        System.out.println("Proporciona un caracter: ");
-        caracter = consola.nextLine().charAt(0);
+        //System.out.println("Proporciona un caracter: ");
+        //caracter = consola.nextLine().charAt(0);
         System.out.println("caracter = " + caracter);
-        
+      
+    
     
     }
     
