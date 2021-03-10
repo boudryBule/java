@@ -5,6 +5,8 @@
  */
 package tipoboolean;
 
+import java.util.Scanner;
+
 /**
  *
  * @author buleb
@@ -33,6 +35,10 @@ public class TipoBoolean {
         } else {
             System.out.println("Eres menor de edad");
         }
+           
+        
+        
+        
     }
     
 }
