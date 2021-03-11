@@ -18,10 +18,11 @@ public class Buclewhile {
         // TODO code application logic here
         //bucle for
         
+        inicio: //etiqueta que marca donde debes de ir NO RECOMENDABLE SU USO
          for (var contador = 0; contador < 3; contador++) { //la variable contador al ser creada dentro del bucle for no se puede usar fuera
             if (contador % 2 != 0) {
                 
-               continue; //hacemos que vaya a la siguiente iteración
+               continue inicio; //hacemos que vaya a la siguiente iteración ESTO ES SIN EL INICIO
             
             }
                 System.out.println("contador = " + contador);
