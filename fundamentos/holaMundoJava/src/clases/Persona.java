@@ -9,6 +9,17 @@ package clases;
  *
  * @author buleb
  */
+
+//window navegator y podemos ver todo lo que tiene nuestra clase
 public class Persona { //para crear una nueva clase, le damos a source packages y le damos a new java class, en este caso lo hemos puesto en el paquete clases
+    //atributos de la clase
+    String nombre;
+    String apellido;
+    
+    //metodos de la clase
+    public  void desplegarInformacion(){
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Apellido: " + apellido);
+    }
     
 }
