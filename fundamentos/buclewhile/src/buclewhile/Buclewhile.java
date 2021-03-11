@@ -16,6 +16,14 @@ public class Buclewhile {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        //bucle for
+        
+        for(var contador = 0; contador < 3; contador++) { //la variable contador al ser creada dentro del bucle for no se puede usar fuera
+            System.out.println("contador = " + contador);
+        }
+        
+        
+        //bucle while
 //        var contador = 0;
 //        while( contador < 3) {
 //            System.out.println("contador = " + contador);
@@ -26,16 +34,12 @@ public class Buclewhile {
 
         //bucle do while -> en este bucle minimo se ejecuta una vez aunque sea falso
         
-        var contador = 0;
-        
-        do{
-            System.out.println("contador = " + contador);
-            contador++;
-        }while (contador <3);
-        
-
-        
-    
+//        var contador = 0;
+//        
+//        do{
+//            System.out.println("contador = " + contador);
+//            contador++;
+//        }while (contador <3);
 
     }
 }
