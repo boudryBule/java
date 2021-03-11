@@ -7,10 +7,7 @@ package sistemacalificaciones;
 
 import java.util.Scanner;
 
-/**
- *
- * @author buleb
- */
+
 public class SistemaCalificaciones {
 
     /**
@@ -36,6 +33,8 @@ public class SistemaCalificaciones {
         if (nota >=0 && nota <6){
             System.out.println("F");
         }
+        
+        
         
         
     }
