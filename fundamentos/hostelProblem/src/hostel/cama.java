@@ -1,17 +1,18 @@
 
 package hostel;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class cama {
 
-     int horaEntrada;
-     int horaSalida;
+  
      List<Reserva> listaReservas;
      
     
-    cama ( int horaEntrada, int horaSalida){
-        this.horaEntrada = horaEntrada;
-        this.horaSalida = horaSalida;
-        List<Reserva> listaReservas = new ArrayList<Reserva>();
+    cama (){
+
+        listaReservas = new ArrayList<Reserva>();
     }
       
 }
