@@ -15,6 +15,18 @@ public class PruebaAritmetica {
 //        resultado = aritmetica1.sumarConArgumentos(5,8); //aqui son parametros
 //        System.out.println("resultado usando argumentos= " + resultado);
 
+
+
+
+
+        //variables locales
+        
+        var a = 10;
+        var b = 2;
+        miMetodo(); 
+        
+        
+        
         System.out.println("aritmetica1 a: " + aritmetica1.a);
         System.out.println("aritmetica1 b: " + aritmetica1.b);
         
@@ -23,6 +35,12 @@ public class PruebaAritmetica {
          System.out.println("aritmetica2 a: " + aritmetica2.a);
         System.out.println("aritmetica2 b: " + aritmetica2.b);
 
+    }
+    
+    public static void miMetodo() {
+        //a = 10; //al ser de otro metodo no te permite usarla aqui
+        //está fuera del alcance donde fue definida
+        System.out.println("Otro metodo");
     }
     
 }
