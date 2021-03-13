@@ -43,7 +43,7 @@ public class Hostel
 //                 break;
 //             }
                 boolean isValid = true;
-                for(int k=0; k<arrayCamas[j].listaReservas.size(); k++){ //hay que mirar que entre cuando sea 0
+                for(int k=0; k<arrayCamas[j].listaReservas.size(); k++){ 
                     if(arrayCamas[j].listaReservas.get(k).horaEntrada < horaSalida && arrayCamas[j].listaReservas.get(k).horaSalida > horaEntrada ){ //entrarian las que no hay que aceptar
                         isValid = false;
                         break;
