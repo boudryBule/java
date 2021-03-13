@@ -13,8 +13,8 @@ package clases;
 //window navegator y podemos ver todo lo que tiene nuestra clase
 public class Persona { //para crear una nueva clase, le damos a source packages y le damos a new java class, en este caso lo hemos puesto en el paquete clases
     //atributos de la clase
-    String nombre;
-    String apellido;
+    public String nombre; //si no le ponemos public no lo podemos usar en otro paquete (esto es una mala pracsis pero bueno)
+    public String apellido;
     
     //metodos de la clase
     public  void desplegarInformacion(){
