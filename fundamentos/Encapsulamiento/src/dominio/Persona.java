@@ -6,6 +6,7 @@ public class Persona {
     private double sueldo;
     private boolean eliminado;
     
+    
     public Persona(String nombre, double sueldo, boolean eliminado){
         this.nombre = nombre;
         this.sueldo = sueldo;
@@ -39,6 +40,11 @@ public class Persona {
         this.eliminado = eliminado;
     }
     
+    public String toString(){ //este método convierte a una cadena cada uno de los atributos de nuestra clase
+        return "Persona [ nombre:" + this.nombre +
+                ", sueldo: " + this.sueldo +  
+                ", eliminado: " + this.eliminado + "]";
+    }
     
     
 }
