@@ -28,7 +28,7 @@ public class PersonaPrueba {
         System.out.println("persona = " + persona);
     }
     
-    public int getContador() {
+    public int getContador() { //metodo dinamico o asociado a nuestros objetos
         imprimir(new Persona("Carlos"));
         return this.contador;
     }
