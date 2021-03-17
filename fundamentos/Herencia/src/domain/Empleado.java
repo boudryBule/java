@@ -6,9 +6,15 @@ public class Empleado extends Persona { //así indicas que hereda de Persona
       private static int contadorEmpleado;
 
     public Empleado(String nombre, double sueldo) {
-        super(nombre); //para poner un atributo de una clase de la que heredas tienes que usar super
-        this.idEmpleado = ++Empleado.contadorEmpleado; //le ponemos el Empleado. para saber que es una variable estática
+       // super(nombre); //para poner un atributo de una clase de la que heredas tienes que usar super
+        //this.idEmpleado = ++Empleado.contadorEmpleado; //le ponemos el Empleado. para saber que es una variable estática
+        this(); //asi llamamos al constructor vacio
+        this.nombre= nombre; //no podemos usar super al llamar a this, pero al ser los atributos de la clase Persona protected, se puden llamar aquí
         this.sueldo = sueldo;
+    }
+    
+    public Empleado() {
+        this.idEmpleado = ++Empleado.contadorEmpleado;
     }
 
     public int getIdEmpleado() {
@@ -26,6 +32,7 @@ public class Empleado extends Persona { //así indicas que hereda de Persona
     }
 
     public void setSueldo(double sueldo) {
+
         this.sueldo = sueldo;
     }
 
