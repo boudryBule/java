@@ -17,5 +17,10 @@ public class TestArraysObject {
         for(int i=0; i< personas.length; i++) {
             System.out.println(personas[i]);
         }
+        
+        String frutas[] = {"Naranja", "Platano", "Uva"};
+        for (int i = 0; i < frutas.length; i++) {
+            System.out.println("frutas= " + frutas[i]);
+        }
     }
 }
