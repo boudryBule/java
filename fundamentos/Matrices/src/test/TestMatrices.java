@@ -33,7 +33,7 @@ public class TestMatrices {
         Persona personas[][] = new Persona[2][3];
         personas[0][0] = new Persona("Juan");
         personas[0][1] = new Persona("Karla");
-        imprimir(personas.nombre);
+        imprimir(personas);
     }
     
     
