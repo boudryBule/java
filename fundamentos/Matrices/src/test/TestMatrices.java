@@ -15,5 +15,12 @@ public class TestMatrices {
 
         System.out.println("edades 0-0= " + edades[0][0] );
         System.out.println("edades 0-1= " + edades[0][1] );
+        
+        
+        for(int i = 0; i<edades.length; i++) {
+            for(int j= 0; j<edades[i].length; j++) {
+                System.out.println("edades" + i+ "-" + j + ": " + edades[i][j]);
+            }
+        }
     }
 }
