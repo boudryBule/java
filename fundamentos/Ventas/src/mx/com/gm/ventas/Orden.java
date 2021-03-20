@@ -12,4 +12,13 @@ public class Orden {
         this.idOrden = ++Orden.contadorOrdenes; 
         this.productos = new Producto[Orden.MAX_PRODUCTOS]; //inicializamos el array de productos
     }
+
+    public void agregarProducto(Producto producto){
+        if(this.contadorProductos < Orden.MAX_PRODUCTOS) {
+            productos[contadorProductos++] = producto; //es un post incremento, se va a incrementar despues de que se asocie el elemento
+        } else {
+            System.out.println("Se ha superado el maximo de productos: " + Orden.MAX_PRODUCTOS);
+        }
+    }
+
 }
