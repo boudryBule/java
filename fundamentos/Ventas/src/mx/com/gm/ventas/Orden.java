@@ -31,5 +31,16 @@ public class Orden {
         }
         return total;
     }
+    
+    public void  mostrarOrden() {
+        System.out.println("Id orden: " + this.idOrden);
+        //double totalOrden = this.calcularTotal();
+        System.out.println("total orden: " + this.calcularTotal());
+       // System.out.println("Total de la orden: " + totalOrden);
+        System.out.println("Productos de la orden: ");
+        for (int i = 0; i < this.contadorProductos; i++) {
+            System.out.println(this.productos[i]); //como tiene el to string no hace falta ponerle los campos
+        }
+    }
 
 }
