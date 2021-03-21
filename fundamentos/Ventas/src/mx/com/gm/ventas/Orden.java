@@ -39,7 +39,7 @@ public class Orden {
        // System.out.println("Total de la orden: " + totalOrden);
         System.out.println("Productos de la orden: ");
         for (int i = 0; i < this.contadorProductos; i++) {
-            System.out.println(this.productos[i]); //como tiene el to string no hace falta ponerle los campos
+            System.out.println(this.productos[i]); //como tiene el to string no hace falta ponerle los campos 
         }
     }
 
