@@ -54,6 +54,12 @@ public class Computadora {
     public void setRaton(Raton raton) {
         this.raton = raton;
     }
+
+    @Override
+    public String toString() {
+        return "Computadora{" + "idComputadora=" + idComputadora + ", nombre=" + nombre + ", monitor=" + monitor + ", teclado=" + teclado + ", raton=" + raton + '}';
+    }
+    
     
     
 }
