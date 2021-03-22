@@ -36,6 +36,11 @@ public class Monitor {
     public void setTamanio(double tamanio) {
         this.tamanio = tamanio;
     }
+
+    @Override
+    public String toString() {
+        return "Monitor{" + "idMonitor=" + idMonitor + ", marca=" + marca + ", tamanio=" + tamanio + '}';
+    }
     
     
 }
