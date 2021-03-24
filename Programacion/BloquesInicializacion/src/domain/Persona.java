@@ -26,4 +26,17 @@ public class Persona {
     public Persona(){
         System.out.println("Ejecucion del constructor");
     }
+
+    public int getIdPersona() {
+        return idPersona;
+    }
+
+    @Override
+    public String toString() {
+        return "Persona{" + "idPersona=" + idPersona + '}';
+    }
+    
+    
+    
+    
 }
