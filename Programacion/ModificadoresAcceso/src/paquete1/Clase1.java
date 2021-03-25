@@ -27,19 +27,50 @@ package paquete1;
 //        System.out.println("Metodo protected");
 //    }
     
-    class Clase1 { //con el modificador default o package no puede ser usada fuera de este paquete
-    
-         String atributoDefault = "Valor atributo default";
+//    class Clase1 { //con el modificador default o package no puede ser usada fuera de este paquete
+//    
+//         String atributoDefault = "Valor atributo default";
+//
+//        Clase1() { 
+//            System.out.println("Constructor default");
+//        }
+//
+////        public Clase1(String arg) {
+////            System.out.println("Constructor publico");
+////        }
+//
+//        void metodoDefault() {
+//            System.out.println("Metodo default");
+//        }
+        
+class Clase1 { //una clase no puede declararse como privada, la dejamos default
 
-        Clase1() { 
-            System.out.println("Constructor default");
-        }
+   private String atributoPrivado = "Valor atributo privado"; //al ser private ya no se puede modificar su valor desde otras clases sin importar que este en el mismo paquete
+   //para poder acceder a este atributo necesitamos los metodos get y set
+
+   private  Clase1() { //el constructor privado solo se puede usar en esta misma clase
+        System.out.println("Constructor privado");
+    }
+   
+   public Clase1(String argumento){
+       this(); //asi llamamos al constructor privado
+       System.out.println("Constructor publico");
+   }
 
 //        public Clase1(String arg) {
 //            System.out.println("Constructor publico");
 //        }
+    private void metodoPrivado() {
+        System.out.println("Metodo privado");
+    }
 
-        void metodoDefault() {
-            System.out.println("Metodo default");
-        }
+    public String getAtributoPrivado() {
+        return atributoPrivado;
+    }
+
+    public void setAtributoPrivado(String atributoPrivado) {
+        this.atributoPrivado = atributoPrivado;
+    }
+    
+    
 }
