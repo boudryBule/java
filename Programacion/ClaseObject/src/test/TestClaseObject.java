@@ -15,6 +15,20 @@ public class TestClaseObject {
             System.out.println("Tienen distinta referencia en memoria");
         }
         
+        if(empleado1.equals(empleado2)) {
+            System.out.println("Los objetos son iguales en contenido");
+        } else{
+            System.out.println("Los objetos son distintos en contenido");
+        }
         
+        
+        // si aplicamos equals entonces tambien estamos aplicando hashcode
+        // regresa un valor de tipo entero y lo calcula a partir del valor de los atributos de nuestra clase
+        if(empleado1.hashCode() == empleado2.hashCode()) {
+                System.out.println("El valor hashcode es igual");                                         
+
+        }else {
+            System.out.println("El valor hashcode es distinto");
+        }
     }
 }
