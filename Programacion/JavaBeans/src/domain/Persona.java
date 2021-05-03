@@ -32,6 +32,11 @@ public class Persona implements Serializable{ //para que sea un java bean debe d
         this.apellido = apellido;
     }
 
+    @Override
+    public String toString() {
+        return "Persona{" + "nombre=" + nombre + ", apellido=" + apellido + '}';
+    }
+
 
     
     
