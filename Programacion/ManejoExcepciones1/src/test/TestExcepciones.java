@@ -8,13 +8,13 @@ public class TestExcepciones {
         
         int resultado = 0;
         
-        try{
+        //Atry{
             resultado = division(10, 0);
-        }catch(Exception e) {
-            System.out.println("Ocurrió un ");
-            e.printStackTrace(System.out);//imprimimos la pila de excepciones
-            System.out.println(e.getMessage()); //asi obtendríamos solo el mensaje de la excepcion sin ver toda la pila de excepciones
-        }
+//        }catch(Exception e) {
+//            System.out.println("Ocurrió un ");
+//            e.printStackTrace(System.out);//imprimimos la pila de excepciones
+//            System.out.println(e.getMessage()); //asi obtendríamos solo el mensaje de la excepcion sin ver toda la pila de excepciones
+//        }
             System.out.println("resultado = " + resultado);
     }
 }
