@@ -10,6 +10,6 @@ public class ClaseGenerica <T>{ //con la <T> indicamos tipo generico
     }
     
     public void obtenerTipo(){
-        System.out.println("El tipo T es: " objeto.getClass().getSimpleName());
+        System.out.println("El tipo T es: " + objeto.getClass().getSimpleName());
     }
 }
