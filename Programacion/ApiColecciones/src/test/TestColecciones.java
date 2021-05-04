@@ -50,7 +50,7 @@ public class TestColecciones {
       System.out.println("elemento = " + elemento);
       
       imprimir(miMapa.keySet()); //asi imprimimos todos las keys (no sale en orden)
-      imprimir(miMapa.values());
+      imprimir(miMapa.values()); //así imprimiría todos los valores
       
     }
     
