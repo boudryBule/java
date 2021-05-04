@@ -14,7 +14,7 @@ public class TestColecciones {
         miLista.add("Sabado");
         miLista.add("Domingo");
         
-        imprimir(miLista);
+        //imprimir(miLista);
         
 //           for(Object elemento: miLista) {
 //            System.out.println("elemento = " + elemento);
@@ -37,8 +37,21 @@ public class TestColecciones {
         miSet.add("Jueves");
         miSet.add("Viernes");
         
-        imprimir(miSet);
+      //  imprimir(miSet);
         
+      
+      Map miMapa = new HashMap();
+      miMapa.put("valor1", "juan"); //asociamos el valor juan a la key valor1
+      miMapa.put("valor2", "Carla");
+      miMapa.put("valor3", "Pepi");
+      
+      
+      String elemento = (String ) miMapa.get("valor1");
+      System.out.println("elemento = " + elemento);
+      
+      imprimir(miMapa.keySet()); //asi imprimimos todos las keys (no sale en orden)
+      imprimir(miMapa.values());
+      
     }
     
     public static void imprimir(Collection coleccion) { //va a recibir el tipo más genérico, la interfaz collection
