@@ -14,8 +14,10 @@ public class TestManejoArchivos {
         
         
         
-        anexarArchivo(nombreArchivo, "Hola desde java");
-        anexarArchivo(nombreArchivo, "Adios"); //si lo volvemos a llamar borra lo que estaba escrito de antes
+//        anexarArchivo(nombreArchivo, "Hola desde java");
+//        anexarArchivo(nombreArchivo, "Adios"); //si lo volvemos a llamar borra lo que estaba escrito de antes
+
+        leerArchivo(nombreArchivo);
     }
     
 }

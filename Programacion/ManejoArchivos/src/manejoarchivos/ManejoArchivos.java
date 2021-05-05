@@ -3,6 +3,8 @@ package manejoarchivos;
 
 //io significa input output así que es el paquete de entrada salida en java
 import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -43,7 +45,7 @@ public class ManejoArchivos {
             PrintWriter salida = new PrintWriter(new FileWriter(archivo, true )); //si le pasamos el valor true es que queremos anexar la información 
             salida.println(contenido); //asi escribimos en el archivo
             salida.close(); //cuando llamamos al método close es cuando se crea el archivo en el disco duro
-            System.out.println("Se ha escrito al archivo");
+            System.out.println("Se ha anexado información al archivo");
 
         } catch (FileNotFoundException ex) {
             ex.printStackTrace(System.out); //imprimimos la excepcion
@@ -52,6 +54,25 @@ public class ManejoArchivos {
         }
     }
     
-    
+    public static void leerArchivo(String nombreArchivo){
+        //por inferencia de tipos, el tipo de archivo que haya en la parte derecha se aplicará a la izquierda
+        var archivo = new File(nombreArchivo);
+        try {
+            //con la función BufferedReader podemos leer lineas completas, con FileReader no
+            var entrada = new BufferedReader(new FileReader(archivo)); //abrimos el flujo
+            var lectura = entrada.readLine(); //leemos una linea
+            while(lectura != null){ //iteramos cada linea de nuestro archivo hasta que encontremos una vacía
+                System.out.println("lectura = " + lectura);
+                lectura = entrada.readLine();
+            }
+                entrada.close();
+            
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace(System.out);
+        } catch (IOException ex) {
+            ex.printStackTrace(System.out);
+        }
+        
+    }
 }
  
