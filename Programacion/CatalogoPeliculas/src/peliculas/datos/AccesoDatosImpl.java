@@ -3,8 +3,6 @@ package peliculas.datos;
 
 import java.io.*;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import peliculas.domain.Pelicula;
 import peliculas.excepciones.*;
 
@@ -60,7 +58,32 @@ public class AccesoDatosImpl implements IAccesoDatos {
 
     @Override
     public String buscar(String nombreRecurso, String buscar) throws LecturaDatosEx {
+        var archivo = new File(nombreRecurso);
+        String resultado = null;
+        try {
+            var entrada = new BufferedReader(new FileReader(archivo));
+            String linea  = null;
+            linea = entrada.readLine();
+            int indice = 1;
+            while(linea != null){
+                if(buscar != null && buscar.equalsIgnoreCase(linea)){
+                    resultado = "Pelicula " + linea + "encontrada en el indice " + indice;
+                    break;
+                }
+                
+                linea = entrada.readLine();
+                indice++;
+            }
+        } catch (FileNotFoundException ex) {
+           ex.printStackTrace();
+           throw new LecturaDatosEx("Excepcion al buscar películas: " + ex.getMessage());
+        } catch (IOException ex) {
+           ex.printStackTrace();
+           throw new LecturaDatosEx("Excepcion al buscar películas: " + ex.getMessage());
+        }
         
+        
+        return resultado;
     }
 
     @Override
