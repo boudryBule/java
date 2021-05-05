@@ -3,6 +3,8 @@ package peliculas.datos;
 
 import java.io.*;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import peliculas.domain.Pelicula;
 import peliculas.excepciones.*;
 
@@ -44,7 +46,16 @@ public class AccesoDatosImpl implements IAccesoDatos {
 
     @Override
     public void escribir(Pelicula pelicula, String nombreRecurso, boolean anexar) throws EscrituraDatosEx {
-        
+        var archivo = new File(nombreRecurso);
+        try {
+            var salida = new PrintWriter(new FileWriter(archivo, anexar));
+            salida.println(pelicula.toString());
+            salida.close();
+            System.out.println("Se ha escrito informacion al archivo: " + pelicula);
+        } catch (IOException ex) {
+           ex.printStackTrace();
+           throw new EscrituraDatosEx("Excepcion al escribir películas: " + ex.getMessage());
+        }
     }
 
     @Override
