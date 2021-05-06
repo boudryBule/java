@@ -21,6 +21,20 @@ public class TestMySqlJDBC {
                 Statement instruccion = conexion.createStatement(); //el objeto de tipo statement nos va a permitir ejecutar sentencias sobre nuestra tabla de base datos
                 var sql = "SELECT id_persona, nombre, apellido, email, telefono FROM persona";
                 ResultSet resultado = instruccion.executeQuery(sql);
+                while(resultado.next()) {//el metodo next nos va a indicar si tenemos elementos por iterar (devuelve true entonces)
+                    System.out.print("Id Persona: " + resultado.getInt("id_persona")); //pritn en vez de println par que todo sea en la misma linea
+                    System.out.print(" Nombre: " + resultado.getString("nombre"));
+                    System.out.print(" Apellido: " + resultado.getString("apellido"));
+                    System.out.print(" Email: " + resultado.getString("email"));
+                    System.out.print(" Telefono: " + resultado.getString("telefono"));
+                    System.out.println("");
+                    
+                }
+                //tenemos que cerrar todos los objetos en el orden inverso al que se han abierto
+                resultado.close();
+                instruccion.close();
+                conexion.close();
+                
             } catch (SQLException ex) {
                 ex.printStackTrace(System.out);
             }
