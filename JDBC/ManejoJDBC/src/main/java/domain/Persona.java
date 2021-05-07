@@ -14,10 +14,11 @@ public class Persona {
         this.idPersona = idPersona;
     }
 
-    public Persona(String nombre, String apellido, String email) { //para introducir una nueva persona no necesitamos pasarle el id porque se pone automático
+    public Persona(String nombre, String apellido, String email, String telefono) { //para introducir una nueva persona no necesitamos pasarle el id porque se pone automático
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
+        this.telefono = telefono;
     }
 
     public Persona(int idPersona, String nombre, String apellido, String email, String telefono) { //para modificar si viene bien un constructor que tenga todos los atributos
@@ -27,6 +28,8 @@ public class Persona {
         this.email = email;
         this.telefono = telefono;
     }
+
+
 
     public int getIdPersona() {
         return idPersona;

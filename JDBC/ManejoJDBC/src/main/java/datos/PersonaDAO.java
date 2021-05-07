@@ -1,5 +1,6 @@
 package datos;
 
+
 import domain.Persona;
 import java.sql.*;
 import java.util.*;
@@ -9,6 +10,7 @@ import java.util.logging.Logger;
 public class PersonaDAO { //esta clase va a realizar las operaciones de insert, update, delete pero de la tabla persona
 
     private static final String SQL_SELECT = "SELECT id_persona, nombre, apellido, email, telefono FROM persona";
+    private static final String SQL_INSERT = "INSERT INTO persona(nombre, apellido,email,telefono) VALUES(?, ?, ?, ?)"; //le pasamos ? como parametro en vez de pasarle el nombre directamente
 
     //metodo que va a devolver una lista de objetos de tipo persona
     public List<Persona> seleccionar() {
@@ -51,5 +53,34 @@ public class PersonaDAO { //esta clase va a realizar las operaciones de insert, 
 
         return personas;
 
+    }
+    
+    //el metodo insertar devuelve int porque nos va a mostrar los registros que se han modificado
+    public int insertar(Persona persona) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        int registros = 0;
+        try {
+            conn = Conexion.getConnection();
+            stmt = conn.prepareStatement(SQL_INSERT);//una vez pasada la sentencia, vamos a ir cambiando los parámetros
+            
+            stmt.setString(1, persona.getNombre());
+            stmt.setString(2, persona.getApellido());
+            stmt.setString(3, persona.getEmail());
+            stmt.setString(4, persona.getTelefono());
+            registros = stmt.executeUpdate(); //para que actualice el estado en la base de datos, nos devuelve el número de registros afectados
+        } catch (SQLException ex) {
+            ex.printStackTrace(System.out);
+        }finally{
+            try {
+                Conexion.close(stmt);
+                Conexion.close(conn);
+            } catch (SQLException ex) {
+                ex.printStackTrace(System.out);
+            }         
+            
+        }
+        
+        return registros;
     }
 }
