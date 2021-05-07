@@ -11,7 +11,8 @@ public class PersonaDAO { //esta clase va a realizar las operaciones de insert, 
 
     private static final String SQL_SELECT = "SELECT id_persona, nombre, apellido, email, telefono FROM persona";
     private static final String SQL_INSERT = "INSERT INTO persona(nombre, apellido,email,telefono) VALUES(?, ?, ?, ?)"; //le pasamos ? como parametro en vez de pasarle el nombre directamente
-
+    private static final String SQL_UPDATE = "UPDATE persona SET nombre = ?, apellido = ?, email = ?, telefono = ? WHERE id_persona = ?";
+    private static final String SQL_DELETE = "DELETE FROM persona WHERE id_persona = ?";
     //metodo que va a devolver una lista de objetos de tipo persona
     public List<Persona> seleccionar() {
         Connection conn = null;
@@ -83,4 +84,59 @@ public class PersonaDAO { //esta clase va a realizar las operaciones de insert, 
         
         return registros;
     }
-}
+    
+    public int actualizar(Persona persona) {
+        
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        int registros = 0;
+        try {
+            conn = Conexion.getConnection();
+            stmt = conn.prepareStatement(SQL_UPDATE);//una vez pasada la sentencia, vamos a ir cambiando los parámetros
+
+            stmt.setString(1, persona.getNombre());
+            stmt.setString(2, persona.getApellido());
+            stmt.setString(3, persona.getEmail());
+            stmt.setString(4, persona.getTelefono());
+            stmt.setInt(5, persona.getIdPersona());
+            registros = stmt.executeUpdate(); //para que actualice el estado en la base de datos, nos devuelve el número de registros afectados
+        } catch (SQLException ex) {
+            ex.printStackTrace(System.out);
+        } finally {
+            try {
+                Conexion.close(stmt);
+                Conexion.close(conn);
+            } catch (SQLException ex) {
+                ex.printStackTrace(System.out);
+            }
+
+        }
+
+        return registros;
+        }
+    public int eliminar(Persona persona) {
+        
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        int registros = 0;
+        try {
+            conn = Conexion.getConnection();
+            stmt = conn.prepareStatement(SQL_DELETE);//una vez pasada la sentencia, vamos a ir cambiando los parámetros
+            
+            stmt.setInt(1, persona.getIdPersona()); //solo necesitamos el valor de idPersona
+            registros = stmt.executeUpdate(); //para que actualice el estado en la base de datos, nos devuelve el número de registros afectados
+        } catch (SQLException ex) {
+            ex.printStackTrace(System.out);
+        } finally {
+            try {
+                Conexion.close(stmt);
+                Conexion.close(conn);
+            } catch (SQLException ex) {
+                ex.printStackTrace(System.out);
+            }
+
+        }
+
+        return registros;
+        }
+    }
