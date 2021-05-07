@@ -6,7 +6,7 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class PesonaDAO { //esta clase va a realizar las operaciones de insert, update, delete pero de la tabla persona
+public class PersonaDAO { //esta clase va a realizar las operaciones de insert, update, delete pero de la tabla persona
 
     private static final String SQL_SELECT = "SELECT id_persona, nombre, apellido, email, telefono FROM persona";
 
