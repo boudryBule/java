@@ -1,13 +1,12 @@
 package datos;
 
 
-import domain.Persona;
+import domain.PersonaDTO;
 import java.sql.*;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-public class PersonaDAO { //esta clase va a realizar las operaciones de insert, update, delete pero de la tabla persona
+
+public class PersonaDaoJDBC implements IPersonaDao{ //esta clase va a realizar las operaciones de insert, update, delete pero de la tabla persona
     
     
     private Connection conexionTransaccional; //queremos hacer una variable de tipo conexion ya que si lo implementamos tal y como está, al abrir y cerrar las conexiones no nos permitiría hacer rollback
@@ -18,22 +17,22 @@ public class PersonaDAO { //esta clase va a realizar las operaciones de insert, 
     private static final String SQL_DELETE = "DELETE FROM persona WHERE id_persona = ?";
     
     //definimos los constructores
-    public PersonaDAO() {
+    public PersonaDaoJDBC() {
         
     }
     
-    public PersonaDAO(Connection conexionTransaccional){
+    public PersonaDaoJDBC(Connection conexionTransaccional){
         this.conexionTransaccional = conexionTransaccional;
     }
     
     
     //metodo que va a devolver una lista de objetos de tipo persona
-    public List<Persona> seleccionar() throws SQLException {
+    public List<PersonaDTO> seleccionar() throws SQLException {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        Persona persona = null;
-        List<Persona> personas = new ArrayList<>();
+        PersonaDTO persona = null;
+        List<PersonaDTO> personas = new ArrayList<>();
 
         try {
             //comprobamos si hay conexion transaccional, si no la hay usamos la conexion normal
@@ -48,7 +47,7 @@ public class PersonaDAO { //esta clase va a realizar las operaciones de insert, 
                 String email = rs.getString("email");
                 String telefono = rs.getString("telefono");
 
-                persona = new Persona(idPersona, nombre, apellido, email, telefono); //creamos nuestro objeto de tipo persona usando el constructor con todos los atributos
+                persona = new PersonaDTO(idPersona, nombre, apellido, email, telefono); //creamos nuestro objeto de tipo persona usando el constructor con todos los atributos
                 //Estamos convirtiendo información de la base de datos en objetos java
 
                 personas.add(persona); //añadimos la persona a la lista de personas
@@ -75,7 +74,7 @@ public class PersonaDAO { //esta clase va a realizar las operaciones de insert, 
     }
     
     //el metodo insertar devuelve int porque nos va a mostrar los registros que se han modificado
-    public int insertar(Persona persona) throws SQLException {
+    public int insertar(PersonaDTO persona) throws SQLException {
         Connection conn = null;
         PreparedStatement stmt = null;
         int registros = 0;
@@ -105,7 +104,7 @@ public class PersonaDAO { //esta clase va a realizar las operaciones de insert, 
         return registros;
     }
     
-    public int actualizar(Persona persona) throws SQLException {
+    public int actualizar(PersonaDTO persona) throws SQLException {
         
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -136,13 +135,13 @@ public class PersonaDAO { //esta clase va a realizar las operaciones de insert, 
 
         return registros;
         }
-    public int eliminar(Persona persona) throws SQLException {
+    public int eliminar(PersonaDTO persona) throws SQLException {
         
         Connection conn = null;
         PreparedStatement stmt = null;
         int registros = 0;
         try {
-             conn = this.conexionTransaccional != null ? this.conexionTransaccional: Conexion.getConnection();
+            conn = this.conexionTransaccional != null ? this.conexionTransaccional: Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_DELETE);//una vez pasada la sentencia, vamos a ir cambiando los parámetros
             
             stmt.setInt(1, persona.getIdPersona()); //solo necesitamos el valor de idPersona
@@ -161,5 +160,7 @@ public class PersonaDAO { //esta clase va a realizar las operaciones de insert, 
         }
 
         return registros;
-        }
     }
+}
+
+
