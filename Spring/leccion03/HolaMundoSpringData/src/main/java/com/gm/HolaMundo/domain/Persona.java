@@ -14,6 +14,8 @@ public class Persona implements Serializable {
     
     private static final long serialVersionUID = 1L; //con esto nuestra clase de identidad ya está implementando  la interfaz de serializable
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPersona;
     private String nombre;
     private String apellido;
