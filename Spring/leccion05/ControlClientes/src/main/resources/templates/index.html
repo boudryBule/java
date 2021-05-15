@@ -17,6 +17,8 @@
                     <th>Apellido </th>
                     <th>Email </th>
                     <th>Teléfono </th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
                 </tr>
 
 
@@ -25,6 +27,7 @@
                     <td th:text="${persona.apellido}" >Mostrar apellido</td>
                     <td th:text="${persona.email}" >Mostrar email</td>
                     <td th:text="${persona.telefono}" >Mostrar telefono</td>
+                    <td> <a th:href="@{/editar/} + ${persona.idPersona}" th:text="Editar" /> </td> <!-- a nuestro path de editar le estaños concatenando el id de la persona (path variable) -->
                 </tr>
             </table>
         </div>

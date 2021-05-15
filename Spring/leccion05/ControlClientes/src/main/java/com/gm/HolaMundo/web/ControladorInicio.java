@@ -44,4 +44,12 @@ public class ControladorInicio {
         
         return "redirect:/";
     }
+    
+    @GetMapping("/editar/{idPersona}")
+    public String editar(Persona persona, Model model) {//spring va a inicializar el objeto de tipo persona con el idPersona que le estamos mapeando también compartimos la variable de modelo para la siguiente peticion
+       persona =  personaService.encontrarPersona(persona);
+       model.addAttribute("persona", persona);
+       
+       return "modificar";
+    }
 }           
