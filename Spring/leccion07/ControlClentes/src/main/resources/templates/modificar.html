@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Datos de la Persona</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: header"> </header>
+        <h2>Datos de la Persona</h2>
+            <a th:href="@{/}">Regresar</a>
+            <br/>
+            <form th:action="@{/guardar}" method ="post" th:object="${persona}"> <!-- el formulario se asocia al objeto de tipo persona -->
+                <input type="hidden" name="idPersona" th:field="*{idPersona}"/> <!--cuando agregamos una nueva persona, el field idPersona está nulo
+                pero si ya tenemos un objeto en memoria por ejemplo con el editar, entonces en nuestra vista si se va a desplegar un valor de idPersona
+                por lo que no se añadirá como objeto nuevo, si no que editará el que tenga ese idPersona-->
+                <br/>
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" th:field="*{nombre}"/> <!-- con field indicamos en qué campo queremos que se guarde -->
+                <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Comprobar errores en nombre</span>
+                <br/>
+                <label for="apellido">Apellido:</label>
+                <input type="text" name="apellido" th:field="*{apellido}"/>
+                <span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}">Comprobar errores en apellido</span><!-- si no hay errores no se despliega el span -->
+                <br/>
+                <label for="email">Email:</label>
+                <input type="text" name="email" th:field="*{email}"/>
+                <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Comprobar errores en email</span>
+                
+                <br/>
+                <label for="telefono">Telefono:</label>
+                <input type="tel" name="telefono" th:field="*{telefono}"/>
+                <input type="submit" name="guardar" value="Guardar"/>
+            </form>
+            
+             <footer th:replace="layout/plantilla :: footer"></footer>
+    </body>
+</html>

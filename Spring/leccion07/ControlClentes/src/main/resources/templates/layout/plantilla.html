@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>Plantilla</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <header th:fragment="header"> <!-- con fragment podemos reutilizarlo -->
+            <h1>Control de Clientes</h1>
+        </header>
+        
+        <footer th:fragment="footer">
+            <p>Derechos reservados <a href="http://www.mediavida.com" target="_blank">Mediavida.com</a></p>
+        </footer>
+    </body>
+</html>
