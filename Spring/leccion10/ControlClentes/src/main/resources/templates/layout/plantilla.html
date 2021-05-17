@@ -17,6 +17,9 @@
                 <a th:href="@{/(lang=en)}">EN</a> |
                 <span> [[#{plantilla.pie-pagina}]] <a href="http://www.mediavida.com." target="_blank">Medaivida.com</a></span> <!-- al ponerlo así nos permite poner el link, si lo pusiesemos en el parrafo no  -->
 
+                <form method="POST" th:action="@{/logout}">
+                    <a href="#" onclick="this.parentNode.submit();">Logout</a> <!-- llamamos al nodo padre que es el formulario -->
+                </form>
             </div>
         </footer>
         
