@@ -6,6 +6,8 @@ import com.gm.HolaMundo.servicio.PersonaService;
 import javax.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -23,13 +25,12 @@ public class ControladorInicio {
     
     //la configuración con MVC es muy parecida, seguimos usando el getMapping
     @GetMapping("/") //mapeamos a un path  para indicarle al navegador que es el método que se tiene que ejecutar
-    public String inicio(Model model) { //con model vamos a agregar la información que queremos compartir con nuestra vista
+    public String inicio(Model model, @AuthenticationPrincipal User user) { //con model vamos a agregar la información que queremos compartir con nuestra vista
+                                                                            //con AuthenticationPrincipal obtenemos que usuario es
         var personas = personaService.listarPersonas();
         
-        
-        
-        
         log.info("Ejecutando el controlador Spring MVC");
+        log.info("Usuario que hizo login: " + user);
         model.addAttribute("personas", personas); 
         return "index";
     }
