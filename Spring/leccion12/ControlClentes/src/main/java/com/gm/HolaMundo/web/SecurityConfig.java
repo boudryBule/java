@@ -1,31 +1,38 @@
 package com.gm.HolaMundo.web;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
     
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("admin")
-                    .password("{noop}123")
-                    .roles("ADMIN", "USER")//no hace falta poner ROLE_ADMIN porque ya lo pone automáticamente Spring
-                
-                .and()//para poder añadir otro usuario
-                .withUser("user")
-                    .password("{noop}123")
-                    .roles("USER")
-                    
-                ;
-                    
-    }
-    
+    //en vez de crear usuarios con el inmemoryAuthentication vamos a usar la implementación de jpa
+   @Autowired
+   private UserDetailsService userDetailsService;
+   
+   
+   //ahora indicamos el tipo de encripción que vamos a utilizar
+   @Bean
+   public BCryptPasswordEncoder passwordEncoder(){
+       return new BCryptPasswordEncoder();
+   }
+   
+   //creamos un metodo para indicar que vamos a usar la  implementación de userDetailsService y también el tipo de condificación passwordEncoder
+   
+   @Autowired
+   public void configurerGlobal(AuthenticationManagerBuilder build) throws Exception{
+       build.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+   }
+   
+   
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests()

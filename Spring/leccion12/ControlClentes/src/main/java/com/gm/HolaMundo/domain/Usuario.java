@@ -26,4 +26,5 @@ public class Usuario implements Serializable{
     @OneToMany //porque un usuario puede tener varios roles
     @JoinColumn(name="id_usuario") //así indicamos cual es la columna que está relacionando nuestras tablas
     private List<Rol> roles; //para poder recuperar los roles asociados a un usuario
+    
 }
