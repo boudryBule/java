@@ -2,9 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-    <head>
+    <head th:fragment="head">
         <title>Plantilla</title>
         <meta charset="UTF-8"/>
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/> <!-- de esta forma añadimos los estilos css de bootstrap  -->
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+        <script th:source="#{/webjars/jquery/jquery.min.js}"></script> <!-- no vamos a usar directamente jquery pero lo necesitamos para que funcione correctamente bootstrap -->
+        <script th:source="#{/webjars/popper.js/umd/popper.min.js}"></script> <!-- no lo vamos a usar directamente pero lo usa bootstrap para sus componentes -->
+        <script th:source="#{/webjars/bootstrap/js/bootstrap.min.js}"></script> 
     </head>
     <body>
         <header th:fragment="header">
