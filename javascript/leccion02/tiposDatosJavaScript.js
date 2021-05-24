@@ -65,3 +65,15 @@ console.log(x);
 var y  = null;
 
 console.log(y);
+
+//arrays
+
+var coches = ["BMW", "Audi","Volvo"];
+
+console.log(coches);
+console.log(typeof coches);
+
+var z = '';
+
+console.log(z);
+console.log(typeof z);
